@@ -35,16 +35,24 @@ function hasReached(el){
 } 
 
 function updateCount(num, maxNum){
+ let currentNum = +num.innerText;
 
+ if(currentNum < maxNum){
+    num.innerText = currentNum + 1;
+
+    setTimeout(() =>{
+       updateCount(num, maxNum);
+    }, 12);
+ }
 }
 
  function skillsCounter(){
-    if(!hesReached(first_skill)) return;
+    if(!hasReached(first_skill)) return;
 
    sk_counters.forEach((counter, i) => {
-      let target = counter.datase.target;
-
+      let target = +counter.dataset.target;
       let strokeValue = 427 - 427 * (target/100);
+
     progress_bars[i].style.setProperty("--target",strokeValue);
     
     setTimeout(() => {
