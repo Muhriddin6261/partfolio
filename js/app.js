@@ -1,11 +1,11 @@
 const header  = document.querySelector("header");
 
 const first_skill = document.querySelector(".skill:first-child");
-const sk_counters = document.querySelectorAll("counter span");
-const progress_bar = document.querySelectorAll(".skills svg circle");
+const sk_counters = document.querySelectorAll(".counter span");
+const progress_bars = document.querySelectorAll(".skills svg circle");
 
 window.addEventListener("scroll", () => {
-   skillsCounter();
+   if (!skillsPlayed) skillsCounter();
 });
 
  /*------------------ navbar sticky ---------------- */
@@ -45,19 +45,22 @@ function updateCount(num, maxNum){
     }, 12);
  }
 }
+let skillsPlayed = false;
 
  function skillsCounter(){
     if(!hasReached(first_skill)) return;
 
+   skillsPlayed = true;
+
    sk_counters.forEach((counter, i) => {
       let target = +counter.dataset.target;
-      let strokeValue = 427 - 427 * (target/100);
+      let strokeValue = 427 - 427 * (target / 100);
 
-    progress_bars[i].style.setProperty("--target",strokeValue);
+    progress_bars[i].style.setProperty("--target", strokeValue);
     
     setTimeout(() => {
        updateCount(counter, target);
-    } ,400);
+    }, 400);
    });
 
 

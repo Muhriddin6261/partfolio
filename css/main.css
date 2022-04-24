@@ -221,6 +221,8 @@ nav.container{
     background-color: var(--main-color-1);
     color: #fff;
     font-size: .85rem;
+    min-width:125px;
+    text-align: center;
     letter-spacing: 0.4px;
     text-transform: capitalize;
     transition: 0.3s;
@@ -394,6 +396,7 @@ transform: translate(-50% ,-50%);
     padding: 5rem 6rem;
     border-radius: 20px;
     width: 100%;
+    position: relative;
 }
 .box-desc{
     display: grid;
@@ -433,7 +436,7 @@ transform: translate(-50% ,-50%);
     stroke:var(--main-color-1);
     stroke-linecap: round;
     stroke-dasharray: 427;
-    stroke-dashoffset: 427;
+    stroke-dashoffset: 50;
     
 }
 
@@ -463,3 +466,16 @@ transform: translate(-50% ,-50%);
     font-size: 1rem;
 }
 
+.skills .dots{
+    position: relative;
+    left: -10%;
+    top: -30rem;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+.skills .square{
+    position: relative;
+    left: 100%;
+    top: 75%;
+    transform: translate(-50%, -50%);
+}
